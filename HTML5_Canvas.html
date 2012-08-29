@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Convex Hull</title>
+		
+		<style type="text/css">
+		html,body { margin: 0; padding: 0; width:100%; height:100%; }
+		body { display:-webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; text-align:center; }
+		
+		</style>
+
+		<script type="text/javascript">
+		    //关闭选择
+		    document.addEventListener("selectstart",function(e){ e.preventDefault(); });
+		    //避免鼠标变成文本选择形状
+		    document.addEventListener("mousedown",function(e){ e.preventDefault(); });
+		    //避免上下滚屏
+		    document.addEventListener("touchmove",function(e){ e.preventDefault(); });
+		
+		</script>
+</head>
+<body>
+    <canvas id="main" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        
+        var canvas 	= document.querySelector("#main");
+        var ctx 	= canvas.getContext('2d');
+        var width	= canvas.width;
+        var height	= canvas.height;
+        
+        var RAF = (function(){
+        	return 	window.requestAnimationFrame		||
+        			window.webkitRequestAnimationFrame	||
+        			window.mozRequestAnimationFrame		||
+        			window.oRequestAnimationFrame		||
+        			window.msRequestAnimationFrame		||
+        			function( callback ){
+        				var id = window.setTimeout( callback, 1000/60 );
+        				return id;
+        			}
+        })();
+        
+        
+        
+        
+        function render(){
+        	ctx.fillStyle = 'rgb(0,0,0)';
+        	ctx.fillRect(0,0,width,height);
+        	
+        }
+        
+        (function(){
+        	RAF( arguments.callee );
+        	render();
+        })();
+        
+        
+
+    </script>
+</body>
+</html>
